@@ -1,0 +1,114 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build frontend and test health routes",
+			"type": "shell",
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"npm --prefix AI-Trader-main/service/frontend run build && \"C:\\Users\\Sony\\AppData\\Roaming\\uv\\python\\cpython-3.15.0b3-windows-x86_64-none\\python.exe\" -m pytest AI-Trader-main/service/server/tests/test_health_routes.py"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Restore frontend dependencies",
+			"type": "shell",
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"npm --prefix AI-Trader-main/service/frontend ci"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run monitoring backend tests",
+			"type": "shell",
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"\"C:\\Users\\Sony\\AppData\\Roaming\\uv\\python\\cpython-3.15.0b3-windows-x86_64-none\\python.exe\" -m pytest AI-Trader-main/service/server/tests/test_health_routes.py"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run monitoring backend tests direct",
+			"type": "shell",
+			"command": "C:\\Users\\Sony\\AppData\\Roaming\\uv\\python\\cpython-3.15.0b3-windows-x86_64-none\\python.exe",
+			"args": [
+				"-m",
+				"pytest",
+				"AI-Trader-main/service/server/tests/test_health_routes.py"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify task runner",
+			"type": "shell",
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"echo task-runner-ready"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run monitoring unittest",
+			"type": "shell",
+			"command": "C:\\Users\\Sony\\AppData\\Roaming\\uv\\python\\cpython-3.15.0b3-windows-x86_64-none\\python.exe",
+			"args": [
+				"-m",
+				"unittest",
+				"discover",
+				"-s",
+				"AI-Trader-main/service/server/tests",
+				"-p",
+				"test_health_routes.py",
+				"-v"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Retry health route tests",
+			"type": "shell",
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"\"C:\\Users\\Sony\\AppData\\Roaming\\uv\\python\\cpython-3.15.0b3-windows-x86_64-none\\python.exe\" -m pytest AI-Trader-main/service/server/tests/test_health_routes.py -q"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect package install process",
+			"type": "shell",
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"tasklist /FI \"IMAGENAME eq node.exe\""
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install pytest in test interpreter",
+			"type": "shell",
+			"command": "C:\\Users\\Sony\\AppData\\Roaming\\uv\\python\\cpython-3.15.0b3-windows-x86_64-none\\python.exe",
+			"args": [
+				"-m",
+				"pip",
+				"install",
+				"pytest"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
